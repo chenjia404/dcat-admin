@@ -32,6 +32,9 @@ jobs:
       - name: Composer Update
         run: composer self-update --2
 
+      - name: Configure Composer for Dusk installs
+        run: sh ./tests/bin/composer-ci-setup.sh
+
       - name: Setup MySQL
         uses: mirromutth/mysql-action@v1.1
         with:
