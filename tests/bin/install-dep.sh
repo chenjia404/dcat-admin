@@ -15,7 +15,7 @@ cp -f ./phpunit.dusk.xml ./laravel-tests
 cp -f ./.env.testing ./laravel-tests/.env
 cd ./laravel-tests
 php artisan admin:composer-config
-composer require dcat/laravel-admin:*@dev
+composer require chenjia404/dcat-admin:*@dev
 
 LARAVEL_MAJOR=$(php -r "require 'vendor/autoload.php'; echo (int) explode('.', Illuminate\\Foundation\\Application::VERSION)[0];")
 if [ "$LARAVEL_MAJOR" -ge 13 ]; then
