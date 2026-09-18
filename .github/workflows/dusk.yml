@@ -236,3 +236,42 @@ jobs:
 
       - name: Run test suite
         run: cd ./laravel-tests && php artisan dusk
+
+  laravel13:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: shivammathur/setup-php@b7d1d9c9a92d8d8463ce36d7f60da34d461724f8
+        with:
+          php-version: '8.3'
+
+      - uses: actions/checkout@v2
+
+      - name: Composer Update
+        run: composer self-update --2
+
+      - name: Setup MySQL
+        uses: mirromutth/mysql-action@v1.1
+        with:
+          mysql version: 8.0
+          mysql root password: 123456
+          mysql database: laravel
+          mysql user: root
+          mysql password: 123456
+
+      - name: Install Dependencies
+        run: |
+          composer create-project --prefer-dist laravel/laravel laravel-tests 13.*
+          sh ./tests/bin/install-dep.sh
+
+      - name: Install Admin
+        run: sh ./tests/bin/install-admin.sh
+
+      - name: Install Xvfb
+        run: sudo apt-get install xvfb
+
+      - name: Start Server
+        run: sh ./tests/bin/start.sh
+
+      - name: Run test suite
+        run: cd ./laravel-tests && php artisan dusk
