@@ -52,11 +52,11 @@ jobs:
       - name: Install Admin
         run: sh ./tests/bin/install-admin.sh
 
-      - name: Install Xvfb
-        run: sudo apt-get install -y xvfb
-
-      - name: Start Server
+      - name: Start application server
         run: sh ./tests/bin/start.sh
 
       - name: Run test suite
-        run: cd ./laravel-tests && php artisan dusk
+        working-directory: laravel-tests
+        env:
+          APP_URL: http://127.0.0.1:8300
+        run: php artisan dusk
