@@ -324,7 +324,7 @@ class EloquentRepository extends Repository implements TreeRepository
         $relatedTable = $relation->getRelated()->getTable();
 
         if ($relation instanceof BelongsTo) {
-            $foreignKeyMethod = version_compare(app()->version(), '5.8.0', '<') ? 'getForeignKey' : 'getForeignKeyName';
+            $foreignKeyMethod = 'getForeignKeyName';
 
             return [
                 $relatedTable,
@@ -872,7 +872,7 @@ class EloquentRepository extends Repository implements TreeRepository
                     $parent->save();
 
                     // When in creating, associate two models
-                    $foreignKeyMethod = version_compare(app()->version(), '5.8.0', '<') ? 'getForeignKey' : 'getForeignKeyName';
+                    $foreignKeyMethod = 'getForeignKeyName';
                     if (! $model->{$relation->{$foreignKeyMethod}()}) {
                         $model->{$relation->{$foreignKeyMethod}()} = $parent->getKey();
 
