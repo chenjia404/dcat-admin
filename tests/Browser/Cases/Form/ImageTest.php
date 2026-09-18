@@ -12,13 +12,9 @@ use Tests\TestCase;
  */
 class ImageTest extends TestCase
 {
-    public function test()
+    public function testImageUploadPlaceholder()
     {
-        $this->browse(function (Browser $browser) {
-//            $browser->visit(admin_base_path('tests/users/create'))
-//                ->attach('file-avatar', __DIR__.'/../../../resources/assets/test.jpg');
-
-            $this->assertTrue(true);
-        });
+        // 图片上传 E2E 用例待补全；避免无断言的 browse() 被 PHPUnit 标记为 risky。
+        $this->markTestSkipped('图片上传浏览器测试尚未实现');
     }
 }
