@@ -16,4 +16,11 @@ cp -f ./.env.testing ./laravel-tests/.env
 cd ./laravel-tests
 php artisan admin:composer-config
 composer require dcat/laravel-admin:*@dev
-composer require "laravel/dusk:*" --dev # --ignore-platform-reqs
+
+LARAVEL_MAJOR=$(php -r "require 'vendor/autoload.php'; echo (int) explode('.', Illuminate\\Foundation\\Application::VERSION)[0];")
+if [ "$LARAVEL_MAJOR" -ge 13 ]; then
+    # Laravel 13 默认锁定 Guzzle 8；Packagist 上稳定版 Dusk 仍仅 ^7.5，需 8.x-dev（已合并 Guzzle 8 支持）
+    composer require "laravel/dusk:8.x-dev@dev" --dev --with-all-dependencies
+else
+    composer require "laravel/dusk:*" --dev
+fi
