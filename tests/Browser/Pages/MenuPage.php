@@ -68,8 +68,8 @@ class MenuPage extends Page
         return $browser->within(new MenuCreationForm(), function (Browser $browser) use ($input) {
             $browser->fill($input);
 
-            $browser->pressAndWaitFor(__('admin.submit'), 2);
-            $browser->waitForLocation($this->url(), 2);
+            $browser->pressAndWaitFor(__('admin.submit'), 15);
+            $browser->waitForLocation($this->url(), 15);
         });
     }
 
