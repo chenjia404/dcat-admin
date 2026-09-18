@@ -11,8 +11,8 @@
     <a href="https://styleci.io/repos/182349597">
         <img src="https://github.styleci.io/repos/182349597/shield" alt="StyleCI">
     </a>
-    <a href="https://packagist.org/packages/dcat/laravel-admin" ><img src="https://poser.pugx.org/dcat/laravel-admin/v/stable" /></a> 
-    <a href="https://packagist.org/packages/dcat/laravel-admin"><img src="https://img.shields.io/packagist/dt/dcat/laravel-admin.svg?color=" /></a> 
+    <a href="https://packagist.org/packages/chenjia404/dcat-admin" ><img src="https://poser.pugx.org/chenjia404/dcat-admin/v/stable" /></a> 
+    <a href="https://packagist.org/packages/chenjia404/dcat-admin"><img src="https://img.shields.io/packagist/dt/chenjia404/dcat-admin.svg?color=" /></a> 
     <a><img src="https://img.shields.io/badge/php-8.2+-59a9f8.svg?style=flat" /></a> 
     <a><img src="https://img.shields.io/badge/laravel-11.x%20|%2013.x-59a9f8.svg?style=flat" ></a>
 </p>
@@ -91,7 +91,7 @@ DB_PASSWORD=
 ```
 cd {项目名称}
 
-composer require dcat/laravel-admin
+composer require chenjia404/dcat-admin
 ```
 
 然后运行下面的命令来发布资源：
