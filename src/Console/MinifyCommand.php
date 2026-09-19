@@ -72,10 +72,10 @@ class MinifyCommand extends Command
         try {
             $this->npmInstall();
 
-            $this->info("[$name][$color] npm run production...");
+            $this->info("[$name][$color] pnpm run production...");
 
             // 编译
-            $this->runProcess("cd {$this->packagePath} && npm run prod", 1800);
+            $this->runProcess("cd {$this->packagePath} && pnpm run production", 1800);
 
             if ($publish) {
                 $this->publishAssets();
@@ -118,9 +118,9 @@ class MinifyCommand extends Command
             return;
         }
 
-        $mixFile = $this->getMixFile();
-        $contents = str_replace('let theme = null', "let theme = '{$name}'", $this->files->get($mixFile));
-        $this->files->put($mixFile, $contents);
+        $viteFile = $this->getViteConfigFile();
+        $contents = str_replace('let theme = null', "let theme = '{$name}'", $this->files->get($viteFile));
+        $this->files->put($viteFile, $contents);
 
         $colorFile = $this->getColorFile();
         $this->files->put($colorFile, "\$primary: $color;");
@@ -131,11 +131,11 @@ class MinifyCommand extends Command
      */
     protected function backupFiles()
     {
-        if (! is_file($this->getMixBakFile())) {
-            $this->files->copy($this->getMixFile(), $this->getMixBakFile());
+        if (! is_file($this->getViteConfigBakFile())) {
+            $this->files->copy($this->getViteConfigFile(), $this->getViteConfigBakFile());
         } else {
-            $this->files->delete($this->getMixFile());
-            $this->files->copy($this->getMixBakFile(), $this->getMixFile());
+            $this->files->delete($this->getViteConfigFile());
+            $this->files->copy($this->getViteConfigBakFile(), $this->getViteConfigFile());
         }
 
         if (! is_file($this->getColorBakFile())) {
@@ -148,13 +148,13 @@ class MinifyCommand extends Command
      */
     protected function resetFiles()
     {
-        $mixFile = $this->getMixFile();
-        $mixBakFile = $this->getMixBakFile();
+        $viteFile = $this->getViteConfigFile();
+        $viteBakFile = $this->getViteConfigBakFile();
 
-        if (is_file($mixBakFile)) {
-            $this->files->delete($mixFile);
-            $this->files->copy($mixBakFile, $mixFile);
-            $this->files->delete($mixBakFile);
+        if (is_file($viteBakFile)) {
+            $this->files->delete($viteFile);
+            $this->files->copy($viteBakFile, $viteFile);
+            $this->files->delete($viteBakFile);
         }
 
         $colorFile = $this->getColorFile();
@@ -170,17 +170,17 @@ class MinifyCommand extends Command
     /**
      * @return string
      */
-    protected function getMixFile()
+    protected function getViteConfigFile()
     {
-        return $this->packagePath.'/webpack.mix.js';
+        return $this->packagePath.'/vite.config.js';
     }
 
     /**
      * @return mixed
      */
-    protected function getMixBakFile()
+    protected function getViteConfigBakFile()
     {
-        return str_replace('.js', '.bak.js', $this->getMixFile());
+        return str_replace('.js', '.bak.js', $this->getViteConfigFile());
     }
 
     /**
@@ -208,9 +208,9 @@ class MinifyCommand extends Command
             return;
         }
 
-        $this->info('npm install...');
+        $this->info('pnpm install...');
 
-        $this->runProcess("cd {$this->packagePath} && npm install");
+        $this->runProcess("cd {$this->packagePath} && corepack enable && pnpm install");
     }
 
     /**
