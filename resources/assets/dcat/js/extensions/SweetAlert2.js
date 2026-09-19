@@ -1,7 +1,5 @@
 
-import '../sweetalert/sweetalert2.js';
-
-let Swal = window.Swal;
+import Swal from '../sweetalert/install.js';
 
 let w = window;
 

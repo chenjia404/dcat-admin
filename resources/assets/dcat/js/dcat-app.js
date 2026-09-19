@@ -10,9 +10,7 @@
 
 import Dcat from './Dcat'
 
-import './NProgress/NProgress.min.js'
-
-const NProgress = window.NProgress
+import NProgress from './NProgress/install.js'
 import Ajax from './extensions/Ajax'
 import Toastr from './extensions/Toastr'
 import SweetAlert2 from './extensions/SweetAlert2'
