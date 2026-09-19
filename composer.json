@@ -10,7 +10,7 @@
         "form",
         "laravel admin"
     ],
-    "homepage": "https://github.com/jqhph/dcat-admin",
+    "homepage": "https://github.com/chenjia404/dcat-admin",
     "license": "MIT",
     "authors": [
         {
@@ -21,16 +21,16 @@
     "require": {
         "php": "^8.2",
         "laravel/framework": "~11.0|~12.0|~13.0",
-        "spatie/eloquent-sortable": "4.*|5.*",
-        "doctrine/dbal": "^3.0|^4.0",
-        "dcat/easy-excel": "*"
+        "spatie/eloquent-sortable": "^5.0",
+        "doctrine/dbal": "^3.8|^4.0",
+        "dcat/easy-excel": "^1.1"
     },
     "require-dev": {
-        "laravel/dusk": "^8.0",
-        "phpstan/phpstan": "^1.10",
+        "laravel/dusk": "^8.6",
+        "phpstan/phpstan": "^1.12",
         "phpunit/phpunit": "^10.5|^11.0|^12.0",
-        "fakerphp/faker": "^1.23",
-        "mockery/mockery": "^1.6"
+        "fakerphp/faker": "^1.24",
+        "mockery/mockery": "^1.6.12"
     },
     "autoload": {
         "psr-4": {
