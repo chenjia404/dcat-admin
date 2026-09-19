@@ -11,7 +11,7 @@
         root.NProgress = factory();
     }
 
-})(this, function() {
+})(typeof globalThis !== 'undefined' ? globalThis : typeof self !== 'undefined' ? self : this, function() {
     var NProgress = {};
 
     NProgress.version = '0.2.0';

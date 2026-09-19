@@ -1,5 +1,5 @@
 
-import Swal from '../sweetalert/sweetalert2'
+import Swal from '../sweetalert/install.js';
 
 let w = window;
 
