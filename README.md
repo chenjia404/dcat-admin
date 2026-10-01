@@ -14,7 +14,7 @@
     <a href="https://packagist.org/packages/chenjia404/dcat-admin" ><img src="https://poser.pugx.org/chenjia404/dcat-admin/v/stable" /></a> 
     <a href="https://packagist.org/packages/chenjia404/dcat-admin"><img src="https://img.shields.io/packagist/dt/chenjia404/dcat-admin.svg?color=" /></a> 
     <a><img src="https://img.shields.io/badge/php-8.2+-59a9f8.svg?style=flat" /></a> 
-    <a><img src="https://img.shields.io/badge/laravel-11.x%20|%2013.x-59a9f8.svg?style=flat" ></a>
+    <a><img src="https://img.shields.io/badge/laravel-12.x%20|%2013.x-59a9f8.svg?style=flat" ></a>
 </p>
 
 <p align=""><code>Dcat Admin</code>是一个基于<a href="https://www.laravel-admin.org/" target="_blank">laravel-admin</a>二次开发而成的后台系统构建工具，只需很少的代码即可快速构建出一个功能完善的高颜值后台系统。内置丰富的后台常用组件，开箱即用，让开发者告别冗杂的HTML代码，对后端开发者非常友好。</p>
@@ -62,16 +62,16 @@
 
 ### 环境
  - PHP >= 8.2（Laravel 13 需 PHP >= 8.3）
- - Laravel 11.x ~ 13.x
+ - Laravel 12.x ~ 13.x（仅支持仍在官方维护期内的版本）
  - Fileinfo PHP Extension
 
 ### 安装
 
-首先需要安装`laravel`框架，如已安装可以跳过此步骤。如果您是第一次使用`laravel`，请务必先阅读文档 [安装 《Laravel中文文档》](https://learnku.com/docs/laravel/11.x/installation) ！
+首先需要安装`laravel`框架，如已安装可以跳过此步骤。如果您是第一次使用`laravel`，请务必先阅读文档 [安装 《Laravel中文文档》](https://learnku.com/docs/laravel/12.x/installation) ！
 ```bash
-composer create-project --prefer-dist laravel/laravel 项目名称 11.*
-# 或
-composer create-project --prefer-dist laravel/laravel 项目名称
+composer create-project --prefer-dist laravel/laravel 项目名称 12.*
+# 或 Laravel 13（需 PHP >= 8.3）
+composer create-project --prefer-dist laravel/laravel 项目名称 13.*
 ```
 
 安装完`laravel`之后需要修改`.env`文件，设置数据库连接设置正确
