@@ -61,8 +61,9 @@
 
 
 ### 环境
- - PHP >= 8.2（Laravel 13 需 PHP >= 8.3）
- - Laravel 12.x ~ 13.x（仅支持仍在官方维护期内的版本）
+ - PHP >= 8.2（推荐 >= 8.3；PHP 8.2 安全支持至 2026-12-31；Laravel 13 需 PHP >= 8.3）
+ - Laravel 12.x（安全支持至 2027-02-24）~ 13.x（活跃支持）
+ - 开发依赖 PHPUnit 需 ^12 或 ^13（PHPUnit 11 已于 2026-02 结束 bugfix 支持）
  - Fileinfo PHP Extension
 
 ### 安装
